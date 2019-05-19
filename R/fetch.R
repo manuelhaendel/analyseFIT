@@ -3,12 +3,7 @@
 
 fetch <- function(parameter, data)
 {
-  if(parameter == "minutes")
-  {
-    data <- data[["timestamp"]]
-    data <- (data - data[1]) / 60
-  }
-  else if(parameter == "pace")
+  if(parameter == "pace")
   {
     data <- data[["speed"]]
     data <- speed_to_pace(data)

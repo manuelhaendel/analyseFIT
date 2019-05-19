@@ -34,7 +34,7 @@ import_fit <- function(device = "garmin", from = NULL, to = NULL)
       stop("Argumente 'from' und 'to' müssen entweder beide übergeben werden oder keines!")
   }
 
-  files <- list.files(path = from, pattern = "fit$", full.names = TRUE)
+  files <- list.files(path = from, pattern = "\\.fit$", full.names = TRUE, ignore.case = TRUE)
   copied_files <- sum(file.copy(from = files, to = to, overwrite = FALSE, copy.date = TRUE))
 
   return(ifelse(copied_files != 1, paste0(copied_files, " Aktivitäten wurden importiert."), "1 Aktivität wurde importiert."))
